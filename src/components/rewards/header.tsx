@@ -1,9 +1,12 @@
 
 import HeaderTab from "./tabs/header-tab"
 
+import { SidebarContext } from "../../App"
+import { useContext } from "react"
 
 export function RewardsHeader({activeHeaderTab, setActiveHeaderTab}  : {activeHeaderTab : number, setActiveHeaderTab : (data:number) => void}) {
 
+    const{ isSmallSidebarOpen, setIsSmallSidebarOpen } = useContext(SidebarContext)!;
 
 return(
 <div>
@@ -11,7 +14,7 @@ return(
 
         <div className=" bg-gray-50 flex justify-between items-center w-full">
             <div className="flex items-center gap-3">
-                <button className="lg:hidden">
+                <button className="lg:hidden" onClick={()=>setIsSmallSidebarOpen(!isSmallSidebarOpen)}>
                     <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none" width="28">
                     <g id="SVGRepo_bgCarrier" stroke-width="0">
                         </g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">

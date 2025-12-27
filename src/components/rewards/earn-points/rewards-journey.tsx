@@ -1,10 +1,30 @@
 import DailyStreak from "../../cards/daily-streak";
 import PointBalance from "../../cards/point-balance";
 import TopTool from "../../cards/top-tool";
-
+import { supabase } from "../../../lib/supabase-client";
+import { useState, useEffect } from "react";
 
 export default function RewardsJourney() {
 
+
+  const [pointBalance, setPointBalance] = useState<number>(0);
+  const fetchPointBalance = async () => {
+
+  const { data: { session } } = await supabase.auth.getSession();
+  const userId = session?.user.id;
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('*')
+    .eq('id', userId)
+    .maybeSingle();
+
+
+setPointBalance(profile?.points || 0);
+  }
+  useEffect(() => {
+    fetchPointBalance();
+  }, []);
  return(
 
      <div className="ant-tabs-content-holder">
@@ -28,10 +48,10 @@ export default function RewardsJourney() {
  
             {/* Points Balance Card */}
 
-            <PointBalance />
+            <PointBalance pointBalance={pointBalance} />
 
             {/* Daily Streak Card */}
-            <DailyStreak />
+            <DailyStreak fetchPointBalance={fetchPointBalance} />
 
             {/* Top Tool Card  */}
            <TopTool />

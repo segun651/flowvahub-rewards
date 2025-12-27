@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { supabase } from "../lib/supabase-client"
+import { useNavigate} from "react-router-dom"
 
 export default function SignUp() {
     const[email,setEmail]=useState<string>("")  
@@ -9,6 +10,9 @@ export default function SignUp() {
     const[errorMessage,setErrorMessage]=useState<string>("")
     const[showPassword,setShowPassword]=useState<boolean>(false)
     const[showConfirmPassword,setShowConfirmPassword]=useState<boolean>(false)
+
+    const navigate = useNavigate();
+
 
     async function signUpWithEmail(){
         setLoading(true)
@@ -51,6 +55,7 @@ export default function SignUp() {
         console.log(data)
             setErrorMessage("")
             setLoading(false)
+            navigate("/rewards")
         }
         
     }

@@ -1,5 +1,8 @@
+import { supabase } from "../../lib/supabase-client"
+import { useEffect, useState } from "react"
+export default function PointBalance({pointBalance}:{pointBalance:number}) {
 
-export default function PointBalance() {
+
     return(
         
                 
@@ -15,7 +18,7 @@ export default function PointBalance() {
 <div className="p-4">
   <div className="flex justify-between items-center">
     <div className="font-extrabold text-[36px] text-[#9013fe] my-[10px]">
-      0
+      {pointBalance} 
     </div>
 
     <div
@@ -45,7 +48,7 @@ export default function PointBalance() {
       <span className="text-gray-600">
         Progress to <span className="font-medium">$5 Gift Card</span>
       </span>
-      <span className="font-medium">0/5000</span>
+      <span className="font-medium">{pointBalance}/5000</span>
     </div>
 
     <div className="h-[8px] bg-[#e5e7eb] rounded-full overflow-hidden">

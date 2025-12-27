@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { supabase } from "../../lib/supabase-client";
-export default function DailyStreak() {
+export default function DailyStreak({fetchPointBalance}:{fetchPointBalance:() => Promise<void>}) {
 
 const[loading, setLoading] = useState(false);
 const [streak, setStreak] = useState(0);
@@ -39,7 +39,7 @@ const [streak, setStreak] = useState(0);
   const { error: updateError } = await supabase
     .from('profiles')
     .update({
-      points: profile.points + 50,
+      points: profile.points + 5,
       last_daily_claim: now.toISOString(),
       streak,
     })
@@ -50,10 +50,30 @@ const [streak, setStreak] = useState(0);
     return { success: false, message: 'Error updating profile' };
   }
 
+  // Refresh point balance in parent component
+  await fetchPointBalance();
   return { success: true, message: 'Daily reward claimed! +50 points', streak };
+ 
 }
 
 
+async function fetchStreak() {
+  const { data: { session } } = await supabase.auth.getSession();
+  const userId = session?.user.id;
+  if (userId) {
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('streak') 
+      .eq('id', userId)
+      .maybeSingle();
+    setStreak(profile?.streak || 0);
+  }
+}
+
+// Fetch streak on component mount
+useEffect(() => {
+  fetchStreak();
+}, []);
 
   async function claimReward() {
     setLoading(true);
