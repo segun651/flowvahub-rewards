@@ -13,7 +13,7 @@ export default function ProtectedRoute({ children }: { children: JSX.Element }) 
     const user = fetchSession();
 
     if(!user){
-        navigate("/login");
+        navigate("/signup");
         return null;
     }
     return children;
