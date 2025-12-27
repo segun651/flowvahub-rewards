@@ -41,7 +41,7 @@ A rewards management application built with React, TypeScript, and Vite, integra
   - Copy `.env.local` and add your Supabase credentials:
     ```
     VITE_SUPABASE_URL=your_supabase_url
-    VITE_SUPABASE_ANON_KEY=your_supabase_key
+   VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_key
     ```
 
 4. **Start development server**
@@ -63,6 +63,7 @@ A rewards management application built with React, TypeScript, and Vite, integra
 
 ## Key Assumptions & Trade-offs
         
-- **Supabase Authentication**: Assumes Supabase is configured for user authentication
-- **CSS-based Styling**: Uses vanilla CSS instead of CSS frameworks for minimal dependencies
+- **Supabase Authentication**:Created a mini signup page for user authentication
+- **CSS-based Styling**: Uses Tailwind Css
 - **Component Colocation**: Assets and related files are co-located with components for maintainability
+- **Logic** : Focused on Earn Points and redeem rewards logic using supabse database as my database and ensuring minimal functionality of those features
