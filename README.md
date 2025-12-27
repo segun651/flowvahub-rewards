@@ -1,73 +1,68 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# FlowVaHub Rewards
 
-Currently, two official plugins are available:
+A rewards management application built with React, TypeScript, and Vite, integrated with Supabase for backend services.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- **Earn Points**: Track daily streaks, view point balance, and discover earning opportunities
+- **Refer Friends**: Share referral links to earn bonus points
+- **Rewards Journey**: Visualize your progress toward rewards
+- **Redeem Rewards**: Browse and redeem available rewards
+- **Responsive Design**: Sidebar navigation with tabbed interface
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend**: React 18 + TypeScript
+- **Build Tool**: Vite
+- **Backend**: Supabase
+- **Styling**: CSS
+- **Linting**: ESLint
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Setup Instructions
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
+- Node.js 16+ and npm
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. **Clone the repository**
+  ```bash
+  git clone <repository-url>
+  cd flowvahub-rewards
+  ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. **Install dependencies**
+  ```bash
+  npm install
+  ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+3. **Configure environment variables**
+  - Copy `.env.local` and add your Supabase credentials:
+    ```
+    VITE_SUPABASE_URL=your_supabase_url
+    VITE_SUPABASE_ANON_KEY=your_supabase_key
+    ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+4. **Start development server**
+  ```bash
+  npm run dev
+  ```
+
+5. **Build for production**
+  ```bash
+  npm run build
+  ```
+
+## Project Structure
+
+- `src/components/` - Reusable UI components
+- `src/pages/` - Page-level components
+- `src/lib/` - Supabase client configuration
+- `public/` - Static assets
+
+## Key Assumptions & Trade-offs
+        
+- **Supabase Authentication**: Assumes Supabase is configured for user authentication
+- **CSS-based Styling**: Uses vanilla CSS instead of CSS frameworks for minimal dependencies
+- **Component Colocation**: Assets and related files are co-located with components for maintainability
