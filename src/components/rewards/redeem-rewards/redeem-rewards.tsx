@@ -16,7 +16,7 @@ export default function RedeemRewards() {
 
 return(
     <>
-    <RedeemHeader activeTab={activeTab} setActiveTab={setActiveTab} rewards={rewards}  setRewards={setRewards}/>
+    <RedeemHeader activeTab={activeTab} setActiveTab={setActiveTab} rewards={rewards}  />
     <RedeemCards activeTab={activeTab} rewards={rewards}  setRewards={setRewards}/>
     </>
 )

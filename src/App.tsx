@@ -3,7 +3,7 @@ import SignUp from './pages/SignUp'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import SharedLayout from './sharedLayout'
 import { Rewards } from './pages/rewards'
-import { Sidebar } from './components/sidebar'
+
 
 function App() {
 

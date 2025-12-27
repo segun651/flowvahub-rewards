@@ -1,8 +1,6 @@
 import EarnPoints from "../components/rewards/earn-points/earn-points";
-import Refer from "../components/rewards/earn-points/refer";
-import RewardsJourney from "../components/rewards/earn-points/rewards-journey";
 import { RewardsHeader } from "../components/rewards/header";
-import RedeemHeader from "../components/rewards/redeem-rewards/redeem-header";
+
 import { useState } from "react";
 import RedeemRewards from "../components/rewards/redeem-rewards/redeem-rewards";
 

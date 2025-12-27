@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { Reward } from "../redeem-rewards/redeem-rewards";
-export default function RewardTab({rewards,setRewards,activeTab, setActiveTab}:{rewards: Reward[], setRewards:(data:Reward[]) => void, activeTab : number, setActiveTab : (data:number) => void }) {
+export default function RewardTab({rewards,activeTab, setActiveTab}:{rewards: Reward[],  activeTab : number, setActiveTab : (data:number) => void }) {
     const userPoints = 5
   const unlocked = rewards.filter(
   r => r.status === 'active' && userPoints >= r.points_required
