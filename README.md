@@ -41,7 +41,7 @@ A rewards management application built with React, TypeScript, and Vite, integra
   - Copy `.env.local` and add your Supabase credentials:
     ```
     VITE_SUPABASE_URL=your_supabase_url
-   VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_key
+    VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_key
     ```
 
 4. **Start development server**
