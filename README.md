@@ -66,4 +66,4 @@ A rewards management application built with React, TypeScript, and Vite, integra
 - **Supabase Authentication**:Created a mini signup page for user authentication
 - **CSS-based Styling**: Uses Tailwind Css
 - **Component Colocation**: Assets and related files are co-located with components for maintainability
-- **Logic** : Focused on Earn Points and redeem rewards logic using supabse database as my database and ensuring minimal functionality of those features
+- **Logic** : Focused on Earn Points and redeem rewards logic due to time restraint using supabse database as my database and ensuring minimal functionality of those features 
