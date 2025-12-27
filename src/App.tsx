@@ -1,6 +1,9 @@
 import SignUp from './pages/SignUp'
-import LoginIn from './pages/LoginIn'
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import SharedLayout from './sharedLayout'
+import { Rewards } from './pages/rewards'
+import { Sidebar } from './components/sidebar'
 
 function App() {
 
@@ -10,8 +13,18 @@ function App() {
     <>
  <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<LoginIn />} />
+       
         <Route path="/signup" element={<SignUp />} />
+
+      
+      <Route  element={<SharedLayout />} >
+      <Route path="/rewards" element={<Rewards />} />
+      
+      </Route>
+
+
+
+
       </Routes>
     </BrowserRouter>
     </>
